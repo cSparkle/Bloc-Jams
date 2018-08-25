@@ -13,8 +13,7 @@ class Album extends Component {
             album: album,
             currentSong: album.songs[0],
             isPlaying: false,
-            hoveredSong: null,
-            icon: null
+            hoveredSong: null
         };
 
         this.audioElement = document.createElement('audio');
@@ -57,26 +56,24 @@ class Album extends Component {
             hoveredSong: song
         }); 
         console.log('displayed after onMouseEnter. Hovered song is ' + this.state.hoveredSong);
-        this.determineIcon();
     }
 
     handleMouseLeave(song) {
         this.setState({
             hoveredSong: song
         });
-        console.log('displayed after onMouseLeave. Hovered song is ' + this.state.hoveredSong);
     }
 
-    determineIcon() {
-        if (!this.state.isPlaying) {
-            this.setState({
-                icon: 'ion-md-play-circle'
-            });
+    determineIcon(song, index) {
+        if (!this.state.isPlaying && song === this.state.hoveredSong) {
+            return <span className='ion-md-play-circle'></span>
+        } else if (this.state.isPlaying && song === this.state.hoveredSong && song === this.state.currentSong) {
+            return <span className='ion-md-pause'></span>
+        } else {
+            return <span>{index + 1}</span>
         }
     }
 
-
-   
      
     render() {
         return (
@@ -97,8 +94,8 @@ class Album extends Component {
                     </colgroup>
                     <tbody>
                         {this.state.album.songs.map( (song, index) => 
-                            <tr className='song' key={index} onClick={ () => this.handleSongClick(song) } onMouseEnter={ () => this.handleMouseEnter(song) } onMouseLeave={ () => this.handleMouseLeave(song)} >
-                                <td><span className={this.state.icon}></span></td>
+                            <tr className='song' key={index} onClick={ () => this.handleSongClick(song) } >
+                                <td onMouseEnter={ () => this.handleMouseEnter(song) } onMouseLeave={ () => this.handleMouseLeave(song)}>{this.determineIcon(song, index)}</td>
                                 <td>{song.title}</td>
                                 <td>{song.duration} seconds</td>
                             </tr>
@@ -111,7 +108,3 @@ class Album extends Component {
 }
 
 export default Album;
-
-//Advice from John Frecko
-//Take song being passed in and set it to hoveredSong variable. You do not want to do the rendering of the element in those functions, though. 
-//You want there it me a separate function that determines what to display and take into account the hoveredSong, the currentSong, and the song being rendered
