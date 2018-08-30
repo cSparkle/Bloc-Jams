@@ -145,7 +145,6 @@ class Album extends Component {
         this.setState({
             volume: newVolume
         });
-        console.log(this.state.volume);
     }
 
     render() {
