@@ -12,7 +12,7 @@ class App extends Component {
         <header>
           <nav className='navbar justify-content-around' >
             <Link to='/'>Landing</Link>
-            <Link to='library'>Library</Link>
+            <Link to='/library'>Library</Link>
           </nav>
           <h1>Bloc Jams</h1>
         </header>
