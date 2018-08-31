@@ -138,7 +138,10 @@ class Album extends Component {
         if (seconds < 10) {
             seconds = '0' + seconds;
         }
-        const formattedTime = `${minutes}:${seconds}`;
+        var formattedTime = `${minutes}:${seconds}`;
+        if (isNaN(time)) {
+            formattedTime = '-:--';
+        }
         return formattedTime;
     }
 
