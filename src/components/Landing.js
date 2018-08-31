@@ -2,8 +2,10 @@ import React from 'react';
 
 class Landing extends React.Component {
     render() {
+
+
         return (
-            <section className='landing'>
+            <section className='Landing'>
                 <h1 className='hero-title'>Turn the music up!</h1>
 
                 <section className='selling-points'>

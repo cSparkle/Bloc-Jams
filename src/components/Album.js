@@ -135,6 +135,9 @@ class Album extends Component {
         const minutes = Math.floor(time / 60);
         var seconds = time - minutes * 60;
         seconds = seconds.toFixed(0);
+        if (seconds < 10) {
+            seconds = '0' + seconds;
+        }
         const formattedTime = `${minutes}:${seconds}`;
         return formattedTime;
     }
@@ -151,7 +154,7 @@ class Album extends Component {
         return (
             <section className='album'>
                 <section id='album-info'>
-                    <img id='album-cover-art' src={this.state.album.albumCover} alt={this.state.album.title} />
+                    <img className='img-fluid' id='album-cover-art' src={this.state.album.albumCover} alt={this.state.album.title} />
                     <div className='album-details'>
                         <h1 id='album-title'>{this.state.album.title}</h1>
                         <h2 className='artist'>{this.state.album.artist}</h2>
@@ -169,7 +172,7 @@ class Album extends Component {
                             <tr className='song' key={index} onClick={ () => this.handleSongClick(song) } >
                                 <td onMouseEnter={ () => this.handleMouseEnter(song) } onMouseLeave={ () => this.handleMouseLeave(song)}>{this.determineIcon(song, index)}</td>
                                 <td>{song.title}</td>
-                                <td>{song.duration} seconds</td>
+                                <td>{this.formatTime(song.duration)} seconds</td>
                             </tr>
                         )}       
                     </tbody>
