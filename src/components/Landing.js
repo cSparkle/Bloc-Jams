@@ -8,7 +8,7 @@ class Landing extends React.Component {
             <section className='Landing pt-5'>
                 <section className='container pt-5'>
                     <div className='row pt-5'>
-                        <h2 className='col-12 col-md-8 col-lg-6 col-xl-4'>Turn the music up!</h2>
+                        <h2 className='col-12 col-md-8 col-lg-6 col-xl-4'>Turn the<br/>music up!</h2>
                     </div>
                     <div className='row m-5'>
                         <div className='col-12 col-md-7 col-lg-5 col-xl-3'>

@@ -1,10 +1,39 @@
+* {
+  font-family: montserrat;
+  color: #333;
+}
+
 .navbar {
   position: fixed;
-  /*box-shadow: 0px 3px 20px;*/
   width: 100%;
   z-index: 100;
   background-position: top center;  
   background-attachment: fixed;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 0px 0px;
+  color: #333;
+}
+
+.nav-link:hover {
+  font-weight: bold;
+  color: #000;
+}
+
+h1 {
+  font-family: 'zilla slab highlight';
+  font-size: 40px;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+h3, h4 {
+  font-size: 20px;
 }
 
 .Landing, .navbar {
@@ -20,5 +49,11 @@
 }
 
 #album-square {
-  box-shadow: 0px 3px 20px;
+  box-shadow: 0px 2px 7px;
+  transition: box-shadow .5s;
+  text-align: center;
+}
+
+#album-square:hover {
+  box-shadow: 0px 10px 20px;
 }
