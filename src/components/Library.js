@@ -13,15 +13,19 @@ class Library extends Component {
     
     render() {
         return (
-            <section className='Library'>
-                {this.state.albums.map( (album, index) => 
-                    <Link to={`/album/${album.slug}`} key={index}>
-                        <img className='img-fluid' src={album.albumCover} alt={album.title} />
-                        <div>{album.title}</div>
-                        <div>{album.artist}</div>
-                        <div>{album.songs.length} songs</div>
-                    </Link>
-                )}
+            <section className='container'>
+                <div className='row pt-5 justify-content-around'>
+                    {this.state.albums.map( (album, index) => 
+                        <div id='album-square' className='pt-3 mt-5 col-sm-12 col-md-5'>
+                            <Link to={`/album/${album.slug}`} key={index}>
+                                <img className='img-fluid' src={album.albumCover} alt={album.title} />
+                                <div>{album.title}</div>
+                                <div>{album.artist}</div>
+                                <div>{album.songs.length} songs</div>
+                            </Link>
+                        </div>
+                    )}
+                </div>
             </section>
         );
     }
