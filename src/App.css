@@ -1,0 +1,9 @@
+.App {
+  background-image: url('./Background.jpg');
+  background-position: left center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  height: 1000px;
+  background-color: #F5CA16;
+}
