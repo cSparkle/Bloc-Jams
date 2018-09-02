@@ -28,12 +28,20 @@ h1 {
 }
 
 h2 {
-  font-weight: bold;
   font-size: 40px;
 }
 
-h3, h4 {
-  font-size: 20px;
+h3 {
+  font-size: 25px;
+}
+
+h4, h5 {
+  font-family: 'zilla slab';
+}
+
+h5 {
+  font-size: 15px;
+  color: #858585;
 }
 
 .Landing, .navbar {
@@ -42,18 +50,22 @@ h3, h4 {
 }
 
 .Landing {
-  height: 1000px;
+  height: 900px;
   text-align: center;
   background-repeat: no-repeat;
   background-position: left center;
 }
 
 #album-square {
-  box-shadow: 0px 2px 7px;
+  /*box-shadow: 0px 2px 7px;*/
   transition: box-shadow .5s;
-  text-align: center;
 }
 
 #album-square:hover {
   box-shadow: 0px 10px 20px;
+}
+
+footer {
+  text-align: center;
+  font-size: 15px;
 }

@@ -21,6 +21,9 @@ class App extends Component {
           <Route path='/library' component={Library} />
           <Route path='/album/:slug' component={Album} />
         </main>
+        <footer>
+          <p className='pt-5'>This site was created using React to fulfill requirements for the Bloc Web Development Program. &copy; Cortney Thomas 2018</p>
+        </footer>
       </div>
     );
   }
