@@ -8,12 +8,11 @@ import Album from './components/Album';
 class App extends Component {
   render() {
     return (
-      <div className='App'>
-        <header className='navbar'>
-          <Link className='nav-link' to='/'><h1 className='ion-md-microphone'> Bloc Jams</h1></Link>
-          <nav className='d-flex'>
-            <Link className='nav-link px-3' to='/'>Home</Link>
-            <Link className='nav-link px-3' to='/library'>Library</Link>
+      <div>
+        <header>
+          <nav className='nav d-flex align-items-center position-absolute'>
+            <Link to='/'><h1 className='ion-md-microphone nav-link'> Bloc Jams</h1></Link>
+            <Link to='/library' className='nav-link mx-5'>Library</Link>
           </nav>
         </header>
         <main>
@@ -22,7 +21,7 @@ class App extends Component {
           <Route path='/album/:slug' component={Album} />
         </main>
         <footer>
-          <p className='pt-5'>This site was created using React to fulfill requirements for the Bloc Web Development Program. &copy; Cortney Thomas 2018</p>
+          <p className='text-center pt-2'>This site was created using React to fulfill requirements for the Bloc Web Development Program. &copy; Cortney Thomas 2018</p>
         </footer>
       </div>
     );

@@ -13,19 +13,19 @@ class Library extends Component {
     
     render() {
         return (
-            <section className='container'>
-                <div className='row pt-5 justify-content-around'>
+            <section className='card-deck justify-content-around pt-5'>
                     {this.state.albums.map( (album, index) => 
-                        <div id='album-square' className='p-0 mt-5 col-sm-12 col-md-5'>
-                            <Link className='nav-link' to={`/album/${album.slug}`} key={index}>
-                                <img className='img-fluid' src={album.albumCover} alt={album.title} />
-                                <h4>{album.title}</h4>
-                                <h5>{album.artist}</h5>
-                                <h5>{album.songs.length} songs</h5>
-                            </Link>
-                        </div>
+                        <Link className='nav-link' to={`/album/${album.slug}`} key={index}>
+                            <div className='card border-0 shadow mt-5'>
+                                <img className='mt-0 pt-0' src={album.albumCover} alt={album.title} />
+                                <div className='card-body'>
+                                    <h2 className='card-title'>{album.title}</h2>
+                                    <p className='card-subtitle'>{album.artist}</p>
+                                    <p className='card-text'>{album.songs.length} songs</p>
+                                </div>   
+                            </div>
+                        </Link>
                     )}
-                </div>
             </section>
         );
     }
