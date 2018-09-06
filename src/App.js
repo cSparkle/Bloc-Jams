@@ -8,19 +8,21 @@ import Album from './components/Album';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <header>
-          <nav className='navbar justify-content-around' >
-            <Link to='/'>Landing</Link>
-            <Link to='/library'>Library</Link>
+          <nav className='nav d-flex align-items-center position-absolute'>
+            <Link to='/'><h1 className='ion-md-microphone nav-link'> Bloc Jams</h1></Link>
+            <Link to='/library' className='nav-link mx-5'>Library</Link>
           </nav>
-          <h1>Bloc Jams</h1>
         </header>
         <main>
           <Route exact path='/' component={Landing} />
           <Route path='/library' component={Library} />
           <Route path='/album/:slug' component={Album} />
         </main>
+        <footer>
+          <p className='text-center pt-2'>This site was created using React to fulfill requirements for the Bloc Web Development Program. &copy; Cortney Thomas 2018</p>
+        </footer>
       </div>
     );
   }

@@ -99,11 +99,11 @@ class Album extends Component {
 
     determineIcon(song, index) {
         if (!this.state.isPlaying && song === this.state.hoveredSong) {
-            return <span className='ion-md-play-circle'></span>
+            return <span className='ion-md-play'></span>
         } else if (this.state.isPlaying && song === this.state.hoveredSong && song === this.state.currentSong) {
             return <span className='ion-md-pause'></span>
         } else {
-            return <span>{index + 1}</span>
+            return <span className='ion-md-code'></span>
         }
     }
 
@@ -155,45 +155,42 @@ class Album extends Component {
 
     render() {
         return (
-            <section className='album'>
-                <section id='album-info'>
-                    <img className='img-fluid' id='album-cover-art' src={this.state.album.albumCover} alt={this.state.album.title} />
-                    <div className='album-details'>
-                        <h1 id='album-title'>{this.state.album.title}</h1>
-                        <h2 className='artist'>{this.state.album.artist}</h2>
-                        <div id='release-info'>{this.state.album.releaseInfo}</div>
+            <div className='container-fluid'>
+                <section className='card-deck pt-5'>
+                    <div className='card border-0 pt-5'>
+                        <img className='img-thumbnail' src={this.state.album.albumCover} alt={this.state.album.title} />
+                    </div>
+                    <div className='card border-0 pt-5'>
+                        <h1 className='card-title'>{this.state.album.title}</h1>
+                        <h2 className='card-subtitle'>{this.state.album.artist}</h2>
+                        <p className='card-text'>{this.state.album.releaseInfo}</p>
+                        <table className='table table-hover'>
+                            <tbody>
+                                {this.state.album.songs.map( (song, index) => 
+                                    <tr key={index} onClick={ () => this.handleSongClick(song) } onMouseEnter={ () => this.handleMouseEnter(song) } onMouseLeave={ () => this.handleMouseLeave(song)} >
+                                        <td>{this.determineIcon(song, index)}</td>
+                                        <td>{song.title}</td>
+                                        <td>{this.formatTime(song.duration)}</td>
+                                    </tr>
+                                )}       
+                            </tbody>
+                        </table>
+                        <PlayerBar 
+                            isPlaying={this.state.isPlaying}
+                            currentSong={this.state.currentSong}
+                            currentTime={this.state.currentTime}
+                            duration={this.audioElement.duration}
+                            handleSongClick={ () => this.handleSongClick(this.state.currentSong)}
+                            handlePrevClick={ () => this.handlePrevClick()}
+                            handleNextClick={ () => this.handleNextClick()}
+                            handleTimeChange={ (e) => this.handleTimeChange(e)}
+                            formatTime={ (time) => this.formatTime(time)}
+                            handleVolumeChange={ (e) => this.handleVolumeChange(e)}
+                            volume={this.state.volume}
+                        />
                     </div>
                 </section>
-                <table id='song-list'>
-                    <colgroup>
-                        <col id='song-number-column' />
-                        <col id='song-title-column' />
-                        <col id='song-duration-column' />
-                    </colgroup>
-                    <tbody>
-                        {this.state.album.songs.map( (song, index) => 
-                            <tr className='song' key={index} onClick={ () => this.handleSongClick(song) } >
-                                <td onMouseEnter={ () => this.handleMouseEnter(song) } onMouseLeave={ () => this.handleMouseLeave(song)}>{this.determineIcon(song, index)}</td>
-                                <td>{song.title}</td>
-                                <td>{this.formatTime(song.duration)} seconds</td>
-                            </tr>
-                        )}       
-                    </tbody>
-                </table>
-                <PlayerBar 
-                    isPlaying={this.state.isPlaying}
-                    currentSong={this.state.currentSong}
-                    currentTime={this.state.currentTime}
-                    duration={this.audioElement.duration}
-                    handleSongClick={ () => this.handleSongClick(this.state.currentSong)}
-                    handlePrevClick={ () => this.handlePrevClick()}
-                    handleNextClick={ () => this.handleNextClick()}
-                    handleTimeChange={ (e) => this.handleTimeChange(e)}
-                    formatTime={ (time) => this.formatTime(time)}
-                    handleVolumeChange={ (e) => this.handleVolumeChange(e)}
-                    volume={this.state.volume}
-                />
-            </section>
+            </div>
         );
     }
 }
