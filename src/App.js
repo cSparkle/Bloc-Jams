@@ -11,7 +11,7 @@ class App extends Component {
       <div>
         <header>
           <nav className='nav d-flex align-items-center position-absolute'>
-            <Link to='/'><h1 className='ion-md-microphone nav-link'> Bloc Jams</h1></Link>
+            <Link to='/Bloc-Jams'><h1 className='ion-md-microphone nav-link'> Bloc Jams</h1></Link>
             <Link to='/library' className='nav-link mx-5'>Library</Link>
           </nav>
         </header>
