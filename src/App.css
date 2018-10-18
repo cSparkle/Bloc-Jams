@@ -36,3 +36,7 @@ h2 {
   font-family: 'zilla slab';
   font-size: 30px;
 }
+
+.mt-0.pt-0 {
+  width: 400px;
+}
