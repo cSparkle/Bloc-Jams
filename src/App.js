@@ -16,7 +16,7 @@ class App extends Component {
           </nav>
         </header>
         <main>
-          <Route exact path='/' component={Landing} />
+          <Route exact path='/Bloc-Jams' component={Landing} />
           <Route path='/library' component={Library} />
           <Route path='/album/:slug' component={Album} />
         </main>
