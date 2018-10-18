@@ -2,6 +2,7 @@
   "name": "bloc-jams-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://csparkle.github.io/Bloc-Jams/",
   "dependencies": {
     "bootstrap": "^4.1.3",
     "gh-pages": "^2.0.1",
@@ -11,6 +12,8 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
